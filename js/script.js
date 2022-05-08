@@ -82,6 +82,41 @@ function mouseAndKeysEvents() {
 
         document.querySelector(`.k-key[data=${event.code}]`).classList.add("active")
 
+        for (let i = 0; i < keyboardKeys.codeKeys.length; i++) {
+
+            if (event.code === keyboardKeys.codeKeys[i]) {
+
+                switch (event.code) {
+                    case 'CapsLock':
+                    case 'AltLeft':
+                    case 'AltRight':
+                    case 'ControlLeft':
+                    case 'ControlRight':
+                    case 'ShiftLeft':
+                    case 'ShiftRight':
+                    case 'Backspace':
+                    case 'MetaLeft':
+                    case 'Delete':
+                    case 'Enter':
+                    case 'Tab':
+                    case 'ArrowLeft':
+                    case 'ArrowRight':
+                    case 'ArrowDown':
+                    case 'ArrowUp':
+                    
+                        textarea.value += '';
+                        break;
+                    
+                    default:
+                        event.preventDefault()
+                        !caps ? textarea.value += keyboardKeys[lang].nameKeys[i] : textarea.value += keyboardKeys[lang].shiftKeys[i]
+                }
+
+            }
+
+
+        }
+
     }
 
     document.onkeyup = function (event) {
