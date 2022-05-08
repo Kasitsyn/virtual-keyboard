@@ -66,11 +66,24 @@ function mouseAndKeysEvents() {
             textarea.value += '\t'
         }
 
-        if (event.code == 'ShiftLeft' || event.code == 'CapsLock') {
+        if (event.code == 'CapsLock') {
             !caps ? caps = true : caps = false
 
             renderKeyboard(lang)
             mouseAndKeysEvents()
+        }
+
+        if (event.shiftKey) {
+            caps = true
+
+            renderKeyboard(lang)
+            mouseAndKeysEvents()
+
+            document.onkeyup = (event) => {
+                caps = false
+                renderKeyboard(lang)
+                mouseAndKeysEvents()
+            }
         }
 
 
@@ -103,10 +116,10 @@ function mouseAndKeysEvents() {
                     case 'ArrowRight':
                     case 'ArrowDown':
                     case 'ArrowUp':
-                    
+
                         textarea.value += '';
                         break;
-                    
+
                     default:
                         event.preventDefault()
                         !caps ? textarea.value += keyboardKeys[lang].nameKeys[i] : textarea.value += keyboardKeys[lang].shiftKeys[i]
@@ -121,12 +134,6 @@ function mouseAndKeysEvents() {
 
     document.onkeyup = function (event) {
         document.querySelectorAll(`.k-key`).forEach(key => key.classList.remove("active"))
-
-    }
-
-    document.onkeyup = function (event) {
-        document.querySelectorAll(`.k-key`).forEach(key => key.classList.remove("active"))
-
 
     }
 
