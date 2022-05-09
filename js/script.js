@@ -53,7 +53,7 @@ function renderKeyboard(lang) {
 function mouseAndKeysEvents() {
     document.onkeydown = function (event) {
         let textarea = document.querySelector('.text')
-
+        
         if (event.code == 'AltLeft' && event.ctrlKey) {
             lang === 'ru' ? lang = 'en' : lang = 'ru'
             localStorage.lang = lang
@@ -130,8 +130,8 @@ function mouseAndKeysEvents() {
 
 
         }
-
-        event.code ? document.querySelector(`.k-key[data=${event.code}]`).classList.add("active") : ''
+        
+        document.querySelector(`.k-key[data=${event.code}]`) ? document.querySelector(`.k-key[data=${event.code}]`).classList.add("active") : ''
 
     }
 
