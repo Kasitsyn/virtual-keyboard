@@ -49,11 +49,20 @@
     margin: 3px;
     padding: 3px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
 
+}
+
+.k-key:hover{
+    background-color: #c0c0c0;
 }
 
 .active {
     background-color: #eaeaea
+}
+
+.active:hover {
+    background-color: #eaeaea   
 }
 
 .description {
