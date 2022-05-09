@@ -148,6 +148,7 @@ function mouseAndKeysEvents() {
             if (code == 'MetaLeft') {
                 lang === 'ru' ? lang = 'en' : lang = 'ru'
                 localStorage.lang = lang
+                this.classList.add("active")
                 renderKeyboard(lang)
                 mouseAndKeysEvents()
             }
