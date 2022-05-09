@@ -210,15 +210,9 @@ function mouseAndKeysEvents() {
 
                             !caps ? textarea.value += keyboardKeys[lang].nameKeys[i] : textarea.value += keyboardKeys[lang].shiftKeys[i]
                     }
-
                 }
-
-
             }
-
         }
-
-
     })
 }
 
