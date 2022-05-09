@@ -71,6 +71,7 @@ function mouseAndKeysEvents() {
 
             renderKeyboard(lang)
             mouseAndKeysEvents()
+
         }
 
         if (event.shiftKey) {
@@ -93,7 +94,7 @@ function mouseAndKeysEvents() {
 
         document.querySelector('.text').focus()
 
-        document.querySelector(`.k-key[data=${event.code}]`).classList.add("active")
+
 
         for (let i = 0; i < keyboardKeys.codeKeys.length; i++) {
 
@@ -129,6 +130,8 @@ function mouseAndKeysEvents() {
 
 
         }
+
+        event.code ? document.querySelector(`.k-key[data=${event.code}]`).classList.add("active") : ''
 
     }
 
